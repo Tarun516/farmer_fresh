@@ -79,14 +79,14 @@ const ProductDetail = () => {
       inStock: false,
       description:
         "Fresh milk from the countryside dairy, known for its rich and creamy taste.",
-      reviews: [
-        { user: "Alice", rating: 5, comment: "Great apples, very fresh!" },
-        { user: "Bob", rating: 4, comment: "Good taste, but a bit sour." },
-      ],
+        reviews: [
+          { user: "Alice", rating: 5, comment: "Great apples, very fresh!" },
+          { user: "Bob", rating: 4, comment: "Good taste, but a bit sour." },
+        ],
     },
   ];
 
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [, setCart] = useState<CartItem[]>([]);
   const [quantity, setQuantity] = useState(1);
 
   const product = products.find((p) => p.id === Number(productId));
@@ -113,18 +113,18 @@ const ProductDetail = () => {
   }
 
   const addToCart = (product: Product) => {
-    setCart((prevCart) => {
-      const existingItem = prevCart.find(
+    setCart((cart) => {
+      const existingItem = cart.find(
         (item) => item.product.id === product.id
       );
       if (existingItem) {
-        return prevCart.map((item) =>
+        return cart.map((item) =>
           item.product.id === product.id
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
       }
-      return [...prevCart, { product, quantity }];
+      return [...cart, { product, quantity }];
     });
   };
 
