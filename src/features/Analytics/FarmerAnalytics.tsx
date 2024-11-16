@@ -60,9 +60,7 @@ const CardContent = ({ children }: CardContentProps) => (
 const FarmerAnalytics = () => {
   const [salesData, setSalesData] = useState<SalesDataPoint[] | null>(null);
   const [revenueData, setRevenueData] = useState<RevenueData | null>(null);
-  const [productTrends, setProductTrends] = useState<ProductTrend[] | null>(
-    null
-  );
+  const [productTrends, setProductTrends] = useState<ProductTrend[] | null>(null);
 
   useEffect(() => {
     // Simulated sales data with revenue included
@@ -110,9 +108,9 @@ const FarmerAnalytics = () => {
   );
 
   return (
-    <div className="p-8 space-y-8 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
-      <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold text-gray-900">
+    <div className="p-4 md:p-8 space-y-6 md:space-y-8 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
           Farmer Analytics Dashboard
         </h2>
         <div className="text-sm text-gray-500">
@@ -120,7 +118,7 @@ const FarmerAnalytics = () => {
         </div>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         <StatCard
           title="Total Revenue"
           value={`$${revenueData?.totalRevenue?.toLocaleString()}`}
@@ -145,8 +143,8 @@ const FarmerAnalytics = () => {
         />
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <Card>
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-2">
+        <Card className="min-h-[400px]">
           <CardHeader>
             <h3 className="text-lg font-semibold text-gray-900">
               Sales Performance
@@ -160,8 +158,15 @@ const FarmerAnalytics = () => {
                     strokeDasharray="3 3"
                     className="stroke-gray-200"
                   />
-                  <XAxis dataKey="month" />
-                  <YAxis />
+                  <XAxis 
+                    dataKey="month" 
+                    tick={{ fontSize: 12 }}
+                    interval="preserveStartEnd"
+                  />
+                  <YAxis 
+                    tick={{ fontSize: 12 }}
+                    width={50}
+                  />
                   <Tooltip />
                   <Line
                     type="monotone"
@@ -176,29 +181,29 @@ const FarmerAnalytics = () => {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="min-h-[400px]">
           <CardHeader>
             <h3 className="text-lg font-semibold text-gray-900">
               Product Performance
             </h3>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="space-y-4 overflow-x-hidden">
               {productTrends?.map((product) => (
-                <div key={product.productName} className="space-y-1">
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium text-gray-700">
+                <div key={product.productName} className="space-y-2">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
+                    <span className="text-sm font-medium text-gray-700 min-w-[100px]">
                       {product.productName}
                     </span>
                     <span className="text-sm text-gray-500">
-                      {product.sales} units
+                      {product.sales.toLocaleString()} units
                     </span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
                       className="h-2 rounded-full transition-all duration-500"
                       style={{
-                        width: `${(product.sales / 200) * 100}%`,
+                        width: `${(product.sales / 10000) * 100}%`,
                         backgroundColor: product.color,
                       }}
                     />
