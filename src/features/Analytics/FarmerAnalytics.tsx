@@ -1,5 +1,13 @@
-import { useState, useEffect } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useState, useEffect } from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 interface CardProps {
   children: React.ReactNode;
@@ -38,56 +46,52 @@ interface StatCardProps {
 }
 
 const Card = ({ children, className = "" }: CardProps) => (
-  <div className={`bg-white rounded-lg shadow-md ${className}`}>
-    {children}
-  </div>
+  <div className={`bg-white rounded-lg shadow-md ${className}`}>{children}</div>
 );
 
 const CardHeader = ({ children }: CardHeaderProps) => (
-  <div className="p-4 border-b border-gray-200">
-    {children}
-  </div>
+  <div className="p-4 border-b border-gray-200">{children}</div>
 );
 
 const CardContent = ({ children }: CardContentProps) => (
-  <div className="p-4">
-    {children}
-  </div>
+  <div className="p-4">{children}</div>
 );
 
 const FarmerAnalytics = () => {
   const [salesData, setSalesData] = useState<SalesDataPoint[] | null>(null);
   const [revenueData, setRevenueData] = useState<RevenueData | null>(null);
-  const [productTrends, setProductTrends] = useState<ProductTrend[] | null>(null);
+  const [productTrends, setProductTrends] = useState<ProductTrend[] | null>(
+    null
+  );
 
   useEffect(() => {
     // Simulated sales data with revenue included
     const dummySalesData: SalesDataPoint[] = [
-      { month: 'Jan', unitsSold: 120, revenue: 6000 },
-      { month: 'Feb', unitsSold: 150, revenue: 7500 },
-      { month: 'Mar', unitsSold: 180, revenue: 9000 },
-      { month: 'Apr', unitsSold: 210, revenue: 10500 },
-      { month: 'May', unitsSold: 250, revenue: 12500 },
-      { month: 'Jun', unitsSold: 300, revenue: 15000 },
-      { month: 'Jul', unitsSold: 320, revenue: 16000 },
-      { month: 'Aug', unitsSold: 350, revenue: 17500 },
-      { month: 'Sep', unitsSold: 400, revenue: 20000 },
-      { month: 'Oct', unitsSold: 450, revenue: 22500 },
-      { month: 'Nov', unitsSold: 500, revenue: 25000 },
-      { month: 'Dec', unitsSold: 550, revenue: 27500 }
+      { month: "Jan", unitsSold: 5000, revenue: 200000 },
+      { month: "Feb", unitsSold: 5500, revenue: 220000 },
+      { month: "Mar", unitsSold: 6000, revenue: 240000 },
+      { month: "Apr", unitsSold: 6200, revenue: 248000 },
+      { month: "May", unitsSold: 6500, revenue: 260000 },
+      { month: "Jun", unitsSold: 7000, revenue: 280000 },
+      { month: "Jul", unitsSold: 7200, revenue: 288000 },
+      { month: "Aug", unitsSold: 7500, revenue: 300000 },
+      { month: "Sep", unitsSold: 8000, revenue: 320000 },
+      { month: "Oct", unitsSold: 8500, revenue: 340000 },
+      { month: "Nov", unitsSold: 9000, revenue: 360000 },
+      { month: "Dec", unitsSold: 9500, revenue: 380000 },
     ];
 
     const dummyRevenueData: RevenueData = {
-      totalRevenue: 85000,
-      growth: 25
+      totalRevenue: 3436000,
+      growth: 28,
     };
 
     const dummyProductTrends: ProductTrend[] = [
-      { productName: 'Apples', sales: 200, color: '#FF6B6B' },
-      { productName: 'Bananas', sales: 180, color: '#4ECDC4' },
-      { productName: 'Tomatoes', sales: 150, color: '#45B7D1' },
-      { productName: 'Carrots', sales: 130, color: '#96CEB4' },
-      { productName: 'Lettuce', sales: 120, color: '#FFEEAD' }
+      { productName: "Wheat", sales: 8500, color: "#FFB841" },
+      { productName: "Rice", sales: 7800, color: "#4ECDC4" },
+      { productName: "Maize", sales: 6500, color: "#45B7D1" },
+      { productName: "Barley", sales: 5200, color: "#96CEB4" },
+      { productName: "Millet", sales: 4800, color: "#FFEEAD" },
     ];
 
     setSalesData(dummySalesData);
@@ -108,7 +112,9 @@ const FarmerAnalytics = () => {
   return (
     <div className="p-8 space-y-8 bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen">
       <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold text-gray-900">Farmer Analytics Dashboard</h2>
+        <h2 className="text-3xl font-bold text-gray-900">
+          Farmer Analytics Dashboard
+        </h2>
         <div className="text-sm text-gray-500">
           Last updated: {new Date().toLocaleDateString()}
         </div>
@@ -122,12 +128,19 @@ const FarmerAnalytics = () => {
         />
         <StatCard
           title="Total Units Sold"
-          value={salesData ? salesData[salesData.length - 1].unitsSold : '-'}
+          value={salesData ? salesData[salesData.length - 1].unitsSold : "-"}
           description="Units sold this month"
         />
         <StatCard
           title="Average Price Per Unit"
-          value={`$${salesData ? Math.round(salesData[salesData.length - 1].revenue / salesData[salesData.length - 1].unitsSold) : '-'}`}
+          value={`$${
+            salesData
+              ? Math.round(
+                  salesData[salesData.length - 1].revenue /
+                    salesData[salesData.length - 1].unitsSold
+                )
+              : "-"
+          }`}
           description="Based on current month's sales"
         />
       </div>
@@ -135,20 +148,25 @@ const FarmerAnalytics = () => {
       <div className="grid gap-4 md:grid-cols-2">
         <Card>
           <CardHeader>
-            <h3 className="text-lg font-semibold text-gray-900">Sales Performance</h3>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Sales Performance
+            </h3>
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={salesData || []}>
-                  <CartesianGrid strokeDasharray="3 3" className="stroke-gray-200" />
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    className="stroke-gray-200"
+                  />
                   <XAxis dataKey="month" />
                   <YAxis />
                   <Tooltip />
-                  <Line 
-                    type="monotone" 
-                    dataKey="unitsSold" 
-                    stroke="#2563eb" 
+                  <Line
+                    type="monotone"
+                    dataKey="unitsSold"
+                    stroke="#2563eb"
                     strokeWidth={2}
                     dot={false}
                   />
@@ -160,7 +178,9 @@ const FarmerAnalytics = () => {
 
         <Card>
           <CardHeader>
-            <h3 className="text-lg font-semibold text-gray-900">Product Performance</h3>
+            <h3 className="text-lg font-semibold text-gray-900">
+              Product Performance
+            </h3>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -179,7 +199,7 @@ const FarmerAnalytics = () => {
                       className="h-2 rounded-full transition-all duration-500"
                       style={{
                         width: `${(product.sales / 200) * 100}%`,
-                        backgroundColor: product.color
+                        backgroundColor: product.color,
                       }}
                     />
                   </div>

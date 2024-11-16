@@ -19,44 +19,44 @@ function App() {
   const farmers = [
     {
       id: 1,
-      name: "John Doe",
-      location: "California",
-      practices: ["Organic farming", "Crop rotation"],
+      name: "Rajesh Kumar",
+      location: "Punjab",
+      practices: ["Traditional farming", "Crop rotation", "Organic practices"],
       products: [
         {
           id: 1,
-          name: "Tomatoes",
-          image: "/tomatoes.jpg",
-          price: "$2",
+          name: "Premium Wheat",
+          image: "/wheat.jpg",
+          price: "₹40",
           unit: "kg",
         },
         {
           id: 2,
-          name: "Lettuce",
-          image: "/lettuce.jpg",
-          price: "$1.5",
-          unit: "head",
+          name: "Organic Barley",
+          image: "/barley.jpg",
+          price: "₹45",
+          unit: "kg",
         },
       ],
     },
     {
       id: 2,
-      name: "Jane Doe",
-      location: "Oregon",
-      practices: ["Hydroponic farming", "Sustainable agriculture"],
+      name: "Suresh Patel",
+      location: "Madhya Pradesh",
+      practices: ["Modern farming", "Sustainable agriculture", "Zero tillage"],
       products: [
         {
           id: 1,
-          name: "Cucumbers",
-          image: "/cucumbers.jpg",
-          price: "$3",
+          name: "Yellow Maize",
+          image: "/maize.jpg",
+          price: "₹35",
           unit: "kg",
         },
         {
           id: 2,
-          name: "Peppers",
-          image: "/peppers.jpg",
-          price: "$4",
+          name: "Pearl Millet (Bajra)",
+          image: "/bajra.jpg",
+          price: "₹50",
           unit: "kg",
         },
       ],
@@ -84,7 +84,10 @@ function App() {
           <Route path="/farmer-analytics" element={<FarmerAnalytics />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/logistics" element={<LogisticIntegration />} />
-          <Route path="/educational-resources" element={<EducationalResources />} />
+          <Route
+            path="/educational-resources"
+            element={<EducationalResources />}
+          />
           <Route path="/product/:productId" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckoutPage />} />

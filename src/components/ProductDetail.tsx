@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import Apple from "../assets/apples.jpg";
-import Carrots from "../assets/carrots.jpg";
-import Milk from "../assets/milk.jpg";
+import Wheat from "../assets/Wheat.jpg";
+import Barley from "../assets/Barley.jpg";
+import Maize from "../assets/Maize.jpg";
+
 interface Product {
   id: number;
   name: string;
@@ -35,54 +36,70 @@ const ProductDetail = () => {
   const products: Product[] = [
     {
       id: 1,
-      name: "Fresh Apples",
-      image: Apple,
-      price: "$2.50",
+      name: "Organic Maize",
+      image: Maize,
+      price: "₹60",
       unit: "kg",
-      description:
-        "Freshly picked apples, perfect for eating or making desserts.",
-      seller: "John Farm",
-      location: "Anytown, USA",
-      type: "fruits",
+      seller: "Cereal Grains",
+      location: "Hyderabad, India",
+      type: "grains",
       inStock: true,
+      description:
+        "Premium quality organic maize, perfect for both human consumption and animal feed.",
       reviews: [
-        { user: "Alice", rating: 5, comment: "Great apples, very fresh!" },
-        { user: "Bob", rating: 4, comment: "Good taste, but a bit sour." },
+        { user: "Priya", rating: 5, comment: "Great maize, very fresh!" },
+        { user: "Rahul", rating: 4, comment: "Good taste." },
       ],
     },
     {
       id: 2,
-      name: "Organic Carrots",
-      image: Carrots,
-      price: "$3.75",
-      unit: "bunch",
-      seller: "Jane Produce",
-      location: "Smallville, USA",
-      type: "vegetables",
+      name: "Barley Grain",
+      image: Barley,
+      price: "₹45",
+      unit: "kg",
+      seller: "Cereal Grains",
+      location: "Punjab, India",
+      type: "grains",
       inStock: true,
       description:
-        "Organic carrots, grown in Smallville, packed with vitamins and nutrients.",
+        "High-quality barley grain, ideal for brewing and cooking purposes.",
       reviews: [
-        { user: "Alice", rating: 5, comment: "Great apples, very fresh!" },
-        { user: "Bob", rating: 4, comment: "Good taste, but a bit sour." },
+        {
+          user: "Priya",
+          rating: 5,
+          comment: "Great barley, very fresh and pure!",
+        },
+        {
+          user: "Rahul",
+          rating: 4,
+          comment: "Good quality, but slightly coarse grind.",
+        },
       ],
     },
     {
       id: 3,
-      name: "Fresh Milk",
-      image: Milk,
-      price: "$4.00",
-      unit: "gallon",
-      seller: "Dairy Farm",
-      location: "Countryside, USA",
-      type: "dairy",
+      name: "Wheat Grain",
+      image: Wheat,
+      price: "₹40",
+      unit: "kg",
+      seller: "Cereal Grains",
+      location: "Madhya Pradesh, India",
+      type: "grains",
       inStock: false,
       description:
-        "Fresh milk from the countryside dairy, known for its rich and creamy taste.",
-        reviews: [
-          { user: "Alice", rating: 5, comment: "Great apples, very fresh!" },
-          { user: "Bob", rating: 4, comment: "Good taste, but a bit sour." },
-        ],
+        "Premium quality wheat grain, perfect for making flour and various wheat-based products.",
+      reviews: [
+        {
+          user: "Priya",
+          rating: 5,
+          comment: "Great wheat, very fresh and pure!",
+        },
+        {
+          user: "Rahul",
+          rating: 4,
+          comment: "Good quality, but slightly coarse grind.",
+        },
+      ],
     },
   ];
 
@@ -114,9 +131,7 @@ const ProductDetail = () => {
 
   const addToCart = (product: Product) => {
     setCart((cart) => {
-      const existingItem = cart.find(
-        (item) => item.product.id === product.id
-      );
+      const existingItem = cart.find((item) => item.product.id === product.id);
       if (existingItem) {
         return cart.map((item) =>
           item.product.id === product.id

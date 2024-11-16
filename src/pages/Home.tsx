@@ -16,18 +16,18 @@ import { motion } from 'framer-motion';
 const UserHomePage = () => {
   // Sample data - replace with actual data from your backend
   const recentOrders = [
-    { id: 1, farmer: "Green Acres Farm", items: "Organic Vegetables", date: "2024-11-15", status: "Processing" },
-    { id: 2, farmer: "Sunrise Dairy", items: "Fresh Milk, Cheese", date: "2024-11-14", status: "Delivered" },
+    { id: 1, farmer: "Krishna Grains Farm", items: "Organic Wheat", date: "2024-11-15", status: "Processing" },
+    { id: 2, farmer: "Singh Cereals", items: "Barley, Maize", date: "2024-11-14", status: "Delivered" },
   ];
-
+  
   const upcomingDeliveries = [
-    { id: 1, date: "Nov 17", farmer: "Fresh Fields Farm", items: "Seasonal Vegetables Box" },
-    { id: 2, date: "Nov 18", farmer: "Happy Hens", items: "Farm Fresh Eggs" },
+    { id: 1, date: "Nov 17", farmer: "Patel Agro Farms", items: "Premium Basmati Rice" },
+    { id: 2, date: "Nov 18", farmer: "Sharma Grain Mills", items: "Organic Millet Pack" },
   ];
-
+  
   const featuredFarmers = [
-    { id: 1, name: "Valley View Organics", location: "Springfield Valley", rating: 4.8, specialty: "Organic Vegetables" },
-    { id: 2, name: "Mountain Creek Dairy", location: "Highland Region", rating: 4.9, specialty: "Dairy Products" },
+    { id: 1, name: "Reddy Grain Traders", location: "Telangana Valley", rating: 4.8, specialty: "Premium Rice Varieties" },
+    { id: 2, name: "Kumar Organic Grains", location: "Punjab Region", rating: 4.9, specialty: "Organic Wheat & Millets" },
   ];
 
   return (

@@ -51,58 +51,61 @@ const BuyerAnalytics = () => {
         "Nov",
         "Dec",
       ],
-      spending: [200, 250, 280, 300, 350, 400, 420, 450, 500, 550, 600, 650],
+      spending: [
+        20000, 25000, 28000, 30000, 35000, 40000, 42000, 45000, 50000, 55000,
+        60000, 65000,
+      ],
     };
 
     const dummyPurchaseHistoryData = {
-      totalSpent: 6200,
-      averageSpendPerMonth: 516,
+      totalSpent: 620000,
+      averageSpendPerMonth: 51600,
     };
 
     const dummyProductPreferences = [
-      { productName: "Apples", quantityPurchased: 50 },
-      { productName: "Tomatoes", quantityPurchased: 40 },
-      { productName: "Carrots", quantityPurchased: 35 },
-      { productName: "Bananas", quantityPurchased: 30 },
-      { productName: "Lettuce", quantityPurchased: 25 },
+      { productName: "Wheat", quantityPurchased: 5000 },
+      { productName: "Rice", quantityPurchased: 4000 },
+      { productName: "Maize", quantityPurchased: 3500 },
+      { productName: "Barley", quantityPurchased: 3000 },
+      { productName: "Millet", quantityPurchased: 2500 },
     ];
 
     const dummyMarketTrends = {
-      popularProducts: ["Apples", "Tomatoes", "Bananas", "Carrots", "Lettuce"],
+      popularProducts: ["Wheat", "Rice", "Maize", "Barley", "Millet"],
       averagePrices: {
-        fruits: 3.5,
-        vegetables: 2.0,
-        dairy: 4.5,
+        wheat: 40,
+        rice: 45,
+        coarseGrains: 35,
       },
       seasonalDemand: {
-        summer: ["Fruits", "Tomatoes"],
-        winter: ["Grains", "Carrots"],
+        kharif: ["Rice", "Maize", "Millet"],
+        rabi: ["Wheat", "Barley"],
       },
     };
 
     const dummyProductInsights = {
       categoryDistribution: {
-        fruits: 40,
-        vegetables: 30,
-        dairy: 20,
-        grains: 10,
+        wheat: 40,
+        rice: 30,
+        maize: 15,
+        others: 15,
       },
       priceComparison: [
-        { product: "Apples", price: 3.5 },
-        { product: "Tomatoes", price: 2.0 },
-        { product: "Carrots", price: 2.2 },
+        { product: "Premium Wheat", price: 45 },
+        { product: "Basmati Rice", price: 60 },
+        { product: "Yellow Maize", price: 35 },
       ],
     };
 
     const dummyOrderHistory = {
-      totalSpent: 6200,
-      frequentCategories: ["Fruits", "Vegetables"],
+      totalSpent: 620000,
+      frequentCategories: ["Wheat", "Rice"],
     };
 
     const dummyTopSellers = [
-      { seller: "Farmer John", rating: 4.5, totalSales: 150 },
-      { seller: "Farmer Jane", rating: 4.7, totalSales: 200 },
-      { seller: "Farmer Bob", rating: 4.3, totalSales: 130 },
+      { seller: "Sharma Grain Traders", rating: 4.5, totalSales: 15000 },
+      { seller: "Singh Cereals", rating: 4.7, totalSales: 20000 },
+      { seller: "Patel Agro Farms", rating: 4.3, totalSales: 13000 },
     ];
 
     setSpendingData(dummySpendingData);

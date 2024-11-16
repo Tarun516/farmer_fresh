@@ -7,27 +7,31 @@ interface CartItem {
   name: string;
   price: number;
   quantity: number;
+  unit: string;
 }
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([
     {
       id: 1,
-      name: "Fresh Apples",
-      price: 2.5,
-      quantity: 3,
+      name: "Premium Wheat",
+      price: 40,
+      quantity: 50,
+      unit: "kg"
     },
     {
       id: 2,
-      name: "Organic Carrots",
-      price: 1.8,
-      quantity: 2,
+      name: "Basmati Rice",
+      price: 60,
+      quantity: 25,
+      unit: "kg"
     },
     {
       id: 3,
-      name: "Free-Range Eggs",
-      price: 4.0,
-      quantity: 1,
+      name: "Organic Barley",
+      price: 45,
+      quantity: 30,
+      unit: "kg"
     },
   ]);
 
@@ -41,7 +45,7 @@ const Cart = () => {
   const increaseQuantity = (id: number) => {
     setCartItems(
       cartItems.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === id ? { ...item, quantity: item.quantity + 5 } : item
       )
     );
   };
@@ -49,8 +53,8 @@ const Cart = () => {
   const decreaseQuantity = (id: number) => {
     setCartItems(
       cartItems.map((item) =>
-        item.id === id && item.quantity > 1
-          ? { ...item, quantity: item.quantity - 1 }
+        item.id === id && item.quantity > 5
+          ? { ...item, quantity: item.quantity - 5 }
           : item
       )
     );
@@ -83,8 +87,8 @@ const Cart = () => {
                 {/* Headers */}
                 <div className="grid grid-cols-12 gap-4 text-sm font-medium text-gray-500 pb-2 border-b">
                   <div className="col-span-4">Product</div>
-                  <div className="col-span-2 text-right">Price</div>
-                  <div className="col-span-3 text-center">Quantity</div>
+                  <div className="col-span-2 text-right">Price/kg</div>
+                  <div className="col-span-3 text-center">Quantity (kg)</div>
                   <div className="col-span-2 text-right">Total</div>
                   <div className="col-span-1"></div>
                 </div>
@@ -97,7 +101,7 @@ const Cart = () => {
                   >
                     <div className="col-span-4 font-medium">{item.name}</div>
                     <div className="col-span-2 text-right">
-                      ${item.price.toFixed(2)}
+                      ₹{item.price}
                     </div>
                     <div className="col-span-3 flex items-center justify-center space-x-2">
                       <button
@@ -106,7 +110,7 @@ const Cart = () => {
                       >
                         <MinusCircle className="h-4 w-4" />
                       </button>
-                      <span className="w-8 text-center">{item.quantity}</span>
+                      <span className="w-16 text-center">{item.quantity} {item.unit}</span>
                       <button
                         onClick={() => increaseQuantity(item.id)}
                         className="p-1 rounded-full hover:bg-gray-100 transition-colors"
@@ -115,7 +119,7 @@ const Cart = () => {
                       </button>
                     </div>
                     <div className="col-span-2 text-right font-medium">
-                      ${(item.price * item.quantity).toFixed(2)}
+                      ₹{(item.price * item.quantity).toLocaleString('en-IN')}
                     </div>
                     <div className="col-span-1 flex justify-end">
                       <button
@@ -130,9 +134,9 @@ const Cart = () => {
 
                 {/* Total */}
                 <div className="flex justify-between items-center pt-4 border-t">
-                  <div className="text-lg font-semibold">Total</div>
+                  <div className="text-lg font-semibold">Total Amount</div>
                   <div className="text-2xl font-bold text-green-800">
-                    ${calculateTotal().toFixed(2)}
+                    ₹{calculateTotal().toLocaleString('en-IN')}
                   </div>
                 </div>
 
