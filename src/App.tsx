@@ -20,7 +20,7 @@ function App() {
     {
       id: 1,
       name: "Rajesh Kumar",
-      location: "Punjab",
+      location: "Warangal",
       practices: ["Traditional farming", "Crop rotation", "Organic practices"],
       products: [
         {
@@ -42,7 +42,7 @@ function App() {
     {
       id: 2,
       name: "Suresh Patel",
-      location: "Madhya Pradesh",
+      location: "Karimnagar",
       practices: ["Modern farming", "Sustainable agriculture", "Zero tillage"],
       products: [
         {

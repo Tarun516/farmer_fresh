@@ -58,7 +58,7 @@ const ProductDetail = () => {
       price: "₹45",
       unit: "kg",
       seller: "Cereal Grains",
-      location: "Punjab, India",
+      location: "Karimnagar, India",
       type: "grains",
       inStock: true,
       description:
@@ -83,7 +83,7 @@ const ProductDetail = () => {
       price: "₹40",
       unit: "kg",
       seller: "Cereal Grains",
-      location: "Madhya Pradesh, India",
+      location: "Warangal, India",
       type: "grains",
       inStock: false,
       description:
